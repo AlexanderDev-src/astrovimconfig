@@ -7,15 +7,15 @@ return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.colorscheme.catppuccin" },
+  -- indent guides come from snacks.indent (AstroNvim default)
   { import = "astrocommunity.indent.indent-tools-nvim" },
-  { import = "astrocommunity.indent.indent-blankline-nvim" },
-  { import = "astrocommunity.indent.mini-indentscope" },
-  { import = "astrocommunity.editing-support.text-case-nvim" },
   { import = "astrocommunity.editing-support.multiple-cursors-nvim" },
   { import = "astrocommunity.editing-support.todo-comments-nvim" },
   { import = "astrocommunity.editing-support.dial-nvim" },
   { import = "astrocommunity.editing-support.comment-box-nvim" },
   { import = "astrocommunity.editing-support.cloak-nvim" },
+  { import = "astrocommunity.editing-support.rustowl" },
+  { import = "astrocommunity.editing-support.refactoring-nvim" },
   -- { import = "astrocommunity.indent.indent-rainbowline" },
   { import = "astrocommunity.recipes.picker-nvchad-theme" },
   { import = "astrocommunity.motion.flash-nvim" },
@@ -35,10 +35,10 @@ return {
   { import = "astrocommunity.syntax.vim-sandwich" },
   { import = "astrocommunity.media.codesnap-nvim" },
   { import = "astrocommunity.media.cord-nvim" },
-  --  { import = "astrocommunity.media.pets-nvim" },
+
+  { import = "astrocommunity.media.pets-nvim" },
   -- { import = "astrocommunity.note-taking.venn-nvim" },
   -- { import = "astrocommunity.note-taking.neorg" },
-  { import = "astrocommunity.programming-language-support.web-tools-nvim" },
   { import = "astrocommunity.programming-language-support.rest-nvim" },
   -- { import = "astrocommunity.editing-support.nvim-treesitter-context" },
   -- { import = "astrocommunity.editing-support.nvim-treesitter-endwise" },
@@ -46,13 +46,19 @@ return {
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.blade" },
   { import = "astrocommunity.pack.bash" },
-  { import = "astrocommunity.pack.lua" },
-  { import = "astrocommunity.pack.python" },
+  -- Import the Python sub-packs individually: `astrocommunity.pack.python`
+  -- makes lazy walk the whole directory, which also pulls in the pyrefly and
+  -- ty language servers on top of basedpyright.
+  { import = "astrocommunity.pack.python.base" },
+  { import = "astrocommunity.pack.python.basedpyright" },
+  { import = "astrocommunity.pack.python.ruff" },
   { import = "astrocommunity.pack.php" },
   { import = "astrocommunity.pack.go" },
   { import = "astrocommunity.pack.fish" },
   { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.pack.sql" },
+  -- :DBUI database client (Oracle, Postgres, SQLite...); Oracle needs `sql` (SQLcl) on PATH
+  { import = "astrocommunity.pack.full-dadbod" },
   { import = "astrocommunity.pack.toml" },
   { import = "astrocommunity.pack.tailwindcss" },
   { import = "astrocommunity.pack.typescript" },
@@ -68,8 +74,30 @@ return {
   { import = "astrocommunity.lsp.dev-tools-nvim" },
 
   { import = "astrocommunity.quickfix.quicker-nvim" },
+  { import = "astrocommunity.markdown-and-latex.vimtex" },
 
-  { import = "astrocommunity.editing-support.refactoring-nvim" },
+  -- distraction-free writing, maps under <Leader>z (focus, minimalist, ataraxis, narrow)
+  { import = "astrocommunity.editing-support.true-zen-nvim" },
+
+  -- floating `:` cmdline popup near the top of the screen
+  { import = "astrocommunity.utility.noice-nvim" },
+
+  -- :DiffviewOpen, :DiffviewFileHistory %
+  { import = "astrocommunity.git.diffview-nvim" },
+  -- project search and replace, maps under <Leader>s
+  { import = "astrocommunity.search.grug-far-nvim" },
+  -- test runner, maps under <Leader>T; rust, go, python and typescript packs add their adapters
+  { import = "astrocommunity.test.neotest" },
+  -- edit a directory like a buffer, <Leader>O
+  { import = "astrocommunity.file-explorer.oil-nvim" },
+  -- task runner (cargo, make, gradle), maps under <Leader>M
+  { import = "astrocommunity.code-runner.overseer-nvim" },
+  { import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
+  -- live preview for <Leader>lr
+  { import = "astrocommunity.lsp.inc-rename-nvim" },
+  -- inlay hints at the end of the line, settings in plugins/inlay-hints.lua
+  { import = "astrocommunity.lsp.nvim-lsp-endhints" },
+
   -- { import = "astrocommunity.recipes.picker-nvchad-theme" },
   {
     "mfussenegger/nvim-jdtls",

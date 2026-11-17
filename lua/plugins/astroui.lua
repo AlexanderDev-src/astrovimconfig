@@ -9,7 +9,7 @@ return {
   ---@type AstroUIOpts
   opts = {
     -- change colorscheme
-    colorscheme = "catppuccin-nvim",
+    colorscheme = "catppuccin-nvim", -- not "catppuccin": that name loads the plain one built into Neovim. Flavour is set in catppuccin.lua; others: "one_monokai", "onedark"
     -- AstroUI allows you to easily modify highlight groups easily for any and all colorschemes
     highlights = {
       init = { -- this table overrides highlights in all themes
